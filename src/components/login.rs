@@ -27,11 +27,37 @@ pub fn login() -> Html {
     };
 
     html! {
-        <div class="bg-gray-800 flex w-screen">
-            <div class="container mx-auto flex flex-col justify-center items-center	">
-                <form class="m-4 flex">
-                    <input {oninput} class="rounded-l-lg p-4 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white" placeholder="Username"/>
-                    <Link<Route> to={Route::Chat}> <button {onclick} disabled={username.len()<1} class="px-8 rounded-r-lg bg-violet-600	  text-white font-bold p-4 uppercase border-violet-600 border-t border-b border-r" >{"Go Chatting!"}</button></Link<Route>>
+        <div class="min-h-screen w-full bg-gray-900 text-white flex items-center justify-center p-4">
+            <div class="bg-gray-800 rounded-xl shadow-lg p-8 w-full max-w-md space-y-6">
+                <h2 class="text-2xl font-semibold text-center text-violet-400">{"Welcome Back 👋"}</h2>
+                <form class="space-y-4">
+                    <input
+                        {oninput}
+                        placeholder="Enter your username"
+                        class="
+                            w-full px-4 py-3 rounded-lg
+                            bg-gray-700 text-white placeholder-gray-400
+                            border border-gray-600 focus:outline-none
+                            focus:ring-2 focus:ring-violet-500 focus:border-transparent
+                            transition duration-150 ease-in-out
+                        "
+                    />
+                    <Link<Route> to={Route::Chat} classes="block">
+                        <button
+                            {onclick}
+                            disabled={username.len() < 1}
+                            class="
+                                w-full py-3 px-4 rounded-lg
+                                bg-violet-600 hover:bg-violet-700
+                                disabled:opacity-50 disabled:cursor-not-allowed
+                                text-white font-bold uppercase tracking-wide
+                                transition-all duration-150
+                                focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500
+                            "
+                        >
+                            {"Go Chatting!"}
+                        </button>
+                    </Link<Route>>
                 </form>
             </div>
         </div>

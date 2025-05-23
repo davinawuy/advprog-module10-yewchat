@@ -15,6 +15,11 @@ module.exports = {
         filename: 'yewchat.js',
         webassemblyModuleFilename: 'yewchat_bg.wasm',
     },
+
+    performance: {
+        hints: false,
+    },
+        
     plugins: [
         new CopyWebpackPlugin({
             patterns: [{ from: './static', to: distPath }],
